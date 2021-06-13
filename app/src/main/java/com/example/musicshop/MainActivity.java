@@ -26,8 +26,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void decreaseQuantity(View view) {
-        quantity--;
-        TextView countView = findViewById(R.id.count);
-        countView.setText("" + quantity);
+        if (quantity > 0) {
+            quantity--;
+            TextView countView = findViewById(R.id.count);
+            countView.setText("" + quantity);
+        } else {
+            TextView countView = findViewById(R.id.count);
+            countView.setText("0");
+        }
     }
 }
