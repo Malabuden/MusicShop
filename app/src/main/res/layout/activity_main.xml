@@ -128,6 +128,8 @@
                 android:orientation="horizontal">
 
                 <Button
+                    android:id="@+id/minusButton"
+                    android:onClick="decreaseQuantity"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:text="-"
@@ -136,6 +138,7 @@
                     />
 
                 <TextView
+                    android:id="@+id/count"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:text="0"
@@ -145,8 +148,10 @@
                     android:textStyle="bold" />
 
                 <Button
+                    android:id="@+id/plusButton"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    android:onClick="addCountItems"
                     android:text="+"
                     android:textSize="20sp"
                     android:textColor="#ffffff"
