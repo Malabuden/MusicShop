@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -28,6 +29,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        greateSpinner();
+
+        createMap();
+    }
+
+    private void createMap() {
+        goodsMap = new HashMap();
+        goodsMap.put("Guitar", 500.0);
+        goodsMap.put("Drums", 1500.0);
+        goodsMap.put("Keyboard", 1000.0);
+    }
+
+    private void greateSpinner() {
         spinner = findViewById(R.id.spinner);
         spinner.setOnItemSelectedListener(this);
         spinnerArrayList = new ArrayList();
@@ -39,12 +53,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         spinnerAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, spinnerArrayList);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(spinnerAdapter);
-
-        goodsMap = new HashMap();
-        goodsMap.put("Guitar", 500.0);
-        goodsMap.put("Drums", 1500.0);
-        goodsMap.put("Keyboard", 1000.0);
-
     }
 
     public void addCountItems(View view) {
@@ -76,6 +84,23 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         price = (double) goodsMap.get(goodsName);
         TextView priceTextView = findViewById(R.id.priceTextView);
         priceTextView.setText("" + quantity * price);
+
+        ImageView goodsImageView = findViewById(R.id.goodsImageView);
+
+        switch (goodsName) {
+            case "Guitar":
+                goodsImageView.setImageResource(R.drawable.guitar);
+                break;
+            case "Drums":
+                goodsImageView.setImageResource(R.drawable.drums);
+                break;
+            case "Keyboard":
+                goodsImageView.setImageResource(R.drawable.piano);
+                break;
+            default:
+                goodsImageView.setImageResource(R.drawable.guitar);
+                break;
+        }
     }
 
     @Override
