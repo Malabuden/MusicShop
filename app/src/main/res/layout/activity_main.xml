@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Your name"
+        android:id="@+id/userName"
         android:textColor="#9B9B9B"/>
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -168,7 +169,9 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/addCard"
         android:text="Add to card"
+        android:onClick="addToCard"
         android:textAllCaps="true"
         android:textColor="#ffffff"
         android:layout_marginTop="75dp"/>
